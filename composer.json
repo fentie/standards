@@ -1,0 +1,12 @@
+{
+    "autoload": {
+        "psr-4": {"WIW\\": "src/"}
+    },
+    "require": {
+        "equip/framework": "^1.7",
+        "equip/data": "^2.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.3"
+    }
+}
