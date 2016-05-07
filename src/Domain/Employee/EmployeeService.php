@@ -71,7 +71,7 @@ class EmployeeService
      */
     public function fetchCoworkers(Employee $employee, \DateTimeInterface $startTime, \DateTimeInterface $endTime)
     {
-        $sql = 'SELECT u.* -- , s.start_time, s.end_time
+        $sql = 'SELECT u.*
                 FROM users u
                   INNER JOIN (
                     SELECT employee_id
@@ -94,6 +94,15 @@ class EmployeeService
         }, $statement->fetchAll(PDO::FETCH_ASSOC));
     }
 
+    /**
+     * Retrieve all Managers in charge of Shifts for the passed Employee within the specified date range
+     *
+     * @param Employee $employee
+     * @param \DateTimeInterface $startTime
+     * @param \DateTimeInterface $endTime
+     *
+     * @return Manager[]
+     */
     public function fetchManagerContacts(Employee $employee, \DateTimeInterface $startTime, \DateTimeInterface $endTime)
     {
         $sql = 'SELECT u.*, s.start_time, s.end_time
